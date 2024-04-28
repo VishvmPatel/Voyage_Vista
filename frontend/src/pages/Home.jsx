@@ -1,7 +1,8 @@
 import React from 'react'
 import '../styles/home.css';
+import {Link} from 'react-router-dom';
 
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Button } from 'reactstrap';
 import heroImg from '../assets/images/hero-img01.jpg';
 import heroImg02 from '../assets/images/hero-img02.jpg';
 import heroVideo from '../assets/images/hero-video.mp4';
@@ -29,12 +30,8 @@ const Home = () => {
               <Subtitle subtitle={'Know Before You Go'}/>
               <img src={worldImg} alt="" />
             </div>
-            <h1>Travelling opens the door to creating <span className="highlight"> memories</span></h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-               Itaque quod voluptatum dolor similique nemo incidunt molestiae
-              laboriosam nesciunt debitis, nihil temporibus necessitatibus
-              accusantium nulla ipsum nobis, earum impedit maiores provident!
-              </p>
+            <h1>Traveling opens the door to creating <span className="highlight"> memories</span></h1>
+            <p>Embark on journeys to breathtaking destinations where every corner holds the promise of new adventures and cherished memories.</p>
           </div>
         </Col>
 
@@ -94,9 +91,9 @@ const Home = () => {
             <Subtitle subtitle={'Experience'}/>
 
             <h2>With our all experience <br /> we will serve you</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            <p>Benefit from our extensive experience in the travel industry as
               <br />
-               Ea recusandae ipsum rem veniam itaque est.</p>
+              we provide personalized service tailored to your unique preferences and needs.</p>
           </div>
 
           <div className="counter__wrapper d-flex align-items-center gap-5">
@@ -158,7 +155,10 @@ const Home = () => {
   </section>
   {/*==================== testimonial section end==============*/}
   <Newsletter/>
+  
   </>
+
+  
 }
 
 export default Home

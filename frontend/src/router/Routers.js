@@ -8,6 +8,7 @@ import Login from './../pages/Login';
 import Register from './../pages/Register';
 import SearchResultList from './../pages/SearchResultList';
 import ThankYou from '../pages/ThankYou';
+import AiChatBot from './../pages/AiChatBot';
 
 const Routers = () => {
   return (
@@ -15,6 +16,7 @@ const Routers = () => {
         <Route path='/' element={<Navigate to='/home'/>} />
         <Route path= '/home' element={<Home />} />
         <Route path= '/tour' element={<Tours />} />
+        <Route path= '/aiChatBot' element={<AiChatBot />} />
         <Route path= '/tours/:id' element={<TourDetails />} />
         <Route path= '/login' element={<Login />} />
         <Route path= '/register' element={<Register />} />
