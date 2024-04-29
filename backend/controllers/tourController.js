@@ -130,12 +130,15 @@ export const getAllTour = async(req,res)=>{
 export const getTourBySearch = async(req,res)=>{
 
     const city = new RegExp(req.query.city, 'i');
+    const includeFood = new RegExp(req.query.includeFood, 'i');
+    const includeStay = new RegExp(req.query.includeStay, 'i');
+    const modeofTransport = new RegExp(req.query.modeofTransport, 'i');
     const distance = parseInt(req.query.distance);
     const maxGroupSize = parseInt(req.query.maxGroupSize)
 
     try {
         // gte means greater than equal
-        const tours = await Tour.find({city, distance:{$gte:distance},maxGroupSize:{$gte:maxGroupSize}}).populate("reviews");
+        const tours = await Tour.find({city,includeFood,includeStay,modeofTransport, distance:{$gte:distance},maxGroupSize:{$gte:maxGroupSize}}).populate("reviews");
         res.status(200).json({
             success: true,
             message: "Successful",

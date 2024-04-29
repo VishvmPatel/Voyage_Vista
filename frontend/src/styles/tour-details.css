@@ -28,6 +28,7 @@
 }
 
 .tour__extra-details{
+    font-size: 1rem;
     display: flex;
     align-items: center;
     column-gap: 2.7rem;

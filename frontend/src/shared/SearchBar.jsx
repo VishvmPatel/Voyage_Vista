@@ -7,32 +7,40 @@ import {useNavigate} from 'react-router-dom';
 const SearchBar = () => {
 
     const locationRef = useRef('')
+    const includeFoodRef = useRef('')
+    const includeStayRef = useRef('')
+    const modeofTransportRef = useRef('')
     const distanceRef = useRef(0)
     const maxGroupSizeRef = useRef(0)
+    
     const navigate = useNavigate();
 
 
     const searchHandler = async() =>{
         const location = locationRef.current.value
+        const includeFood = includeFoodRef.current.value
+        const includeStay= includeStayRef.current.value
+        const modeofTransport= modeofTransportRef.current.value
         const distance = distanceRef.current.value
         const maxGroupSize = maxGroupSizeRef.current.value
+        
 
 
-        if(location==='' || distance==='' || maxGroupSize===''){
+        if(location==='' || distance==='' || maxGroupSize==='' || includeFood==='' || includeStay===''|| modeofTransport===''){
             return alert("All fields are required!");
         };
 
-        const res = await fetch(`${BASE_URL}/tours/search/getTourBySearch?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`)
+        const res = await fetch(`${BASE_URL}/tours/search/getTourBySearch?city=${location}&distance=${distance}&includeFood=${includeFood}&includeStay=${includeStay}&modeofTransport=${modeofTransport}&maxGroupSize=${maxGroupSize}`)
         if(!res.ok) alert('Something went wrong')
 
         const result = await res.json()
 
-        navigate(`/tours/search?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`,{state: result.data})
+        navigate(`/tours/search?city=${location}&includeFood=${includeFood}&includeStay=${includeStay}&modeofTransport=${modeofTransport}&distance=${distance}&maxGroupSize=${maxGroupSize}`,{state: result.data})
     }
 
   return <Col lg='12'>
     <div className="search__bar">
-        <Form className="d-flex align-items-center gap-4">
+        <Form className="d-flex align-items-center gap-1">
             <FormGroup className="d-flex gap-3 form__group from form__group-fast">
                 <span><i class="ri-map-pin-line"></i></span>
                 <div>
@@ -40,6 +48,27 @@ const SearchBar = () => {
                     <input type="text" placeholder="Where are you going?" ref={locationRef}/>
                 </div>
             </FormGroup>
+            <FormGroup className="d-flex gap-3 form__group from form__group-fast">
+                <span><i class="ri-restaurant-line"></i></span>
+                <div>
+                    <h6>Include Food?</h6>
+                    <input type="text" placeholder="Yes or No" ref={includeFoodRef}/>
+                </div>
+            </FormGroup> 
+            <FormGroup className="d-flex gap-3 form__group from form__group-fast">
+                <span><i class="ri-hotel-line"></i></span>
+                <div>
+                    <h6>Include Stay?</h6>
+                    <input type="text" placeholder="Yes or No" ref={includeStayRef}/>
+                </div>
+            </FormGroup> 
+            <FormGroup className="d-flex gap-3 form__group from form__group-fast">
+                <span><i class="ri-train-line"></i></span>
+                <div>
+                    <h6>Mode of Transport?</h6>
+                    <input type="text" placeholder="Plane or Train" ref={modeofTransportRef}/>
+                </div>
+            </FormGroup> 
             <FormGroup className="d-flex gap-3 form__group from form__group-fast">
                 <span><i class="ri-map-pin-time-line"></i></span>
                 <div>

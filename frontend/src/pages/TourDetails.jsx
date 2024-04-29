@@ -18,7 +18,7 @@ const TourDetails = () => {
 
   const {data:tour, loading, error} = useFetch(`${BASE_URL}/tours/${id}`);
 
-  const {photo, title, desc, price, address, reviews, city, distance, maxGroupSize } = tour;
+  const {photo, title, desc, price, address, reviews, city, distance,includeFood,includeStay,modeofTransport, maxGroupSize } = tour;
 
   const {totalRating, avgRating} = calculateAvgRating(reviews);
 
@@ -96,6 +96,9 @@ const TourDetails = () => {
                   <span><i class="ri-money-rupee-circle-line"></i>₹ {price} /per person</span>
                   <span><i class="ri-map-pin-time-line"></i> {distance} k/m</span>
                   <span><i class="ri-group-line"></i> {maxGroupSize} people</span>
+                  <span>Include Food :{includeFood}</span>
+                  <span>Include Stay :{includeStay}</span>
+                  <span>Mode of Transport:{modeofTransport}</span>
                 </div>
                 <h5>Description</h5>
                 <p>{desc}</p>

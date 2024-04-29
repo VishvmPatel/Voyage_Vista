@@ -23,10 +23,6 @@ const quick__links=[
 
 const quick__links2=[
   {
-    path:'/gallery',
-    display:'Gallery' 
-  },
-  {
     path:'/login',
     display:'Login' 
   },

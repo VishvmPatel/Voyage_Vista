@@ -7,7 +7,7 @@ const OpenBotChatButton = () => {
 
   return (
     <button className="btn1" onClick={openBotChat}>
-      Open Bot Chat
+      Open Chat Bot
     </button>
   );
 };
